@@ -2,4 +2,3 @@ Rotate
 Temp Work
 Sleep
 Wake Up
-Rest

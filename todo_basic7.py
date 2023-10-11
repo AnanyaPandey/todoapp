@@ -5,15 +5,20 @@ Created on Tue Oct 10 21:59:32 2023
 @author: pandey
 # When importing any module it executes it 
 # we can have one separte file with all functions 
-# 
+# Utilizing the if      __name == '__main__' this code block is TRUE 
+# only when it is executed fro the same program, if we importa  python
+# function from antother file this block is False hence not executed.
+# include Time also to note what time to do 
 
 """
 from todoapp_functions import get_todos, save_todos, showtodolist
-        
+import time
+
+now = time.strftime("%m-%d-%Y, %H:%M:%S")
+print("it is - ",now)
 print("")
 todosfilepath = 'todoapp.txt'
 todos = get_todos(todosfilepath) # becomes the variable available throughout program
-
 while True :
     print('\nDirectly provide the task along with action')
     useraction = input("add , show, edit, Mark Complete or exit: ").strip()

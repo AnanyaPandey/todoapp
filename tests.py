@@ -69,3 +69,77 @@ with open('test_files/file.txt','r') as f:
 print('hey=how=are=you'.split('='))
 # return a list 
 
+import time
+print(time.strftime('%Y'))
+print(time.strftime("%m-%d-%Y, %H:%M:%S"))
+
+import todoapp_functions
+dir(todoapp_functions)
+
+# ==== list of useful modules
+import glob
+# provide what files u want to filter
+# glob function returns a list 
+myfiles = glob.glob('test_files/*.txt')
+print(myfiles)
+for each_filepaths in myfiles:
+    with open(each_filepaths,'r') as file:
+        print(file.read())
+        
+# Returns all the txt files as a list in current directory
+
+import csv
+with open('test_files/filename.csv','r') as file :
+    data = list(csv.reader(file))
+print(data)
+
+userinput = input("Enter a City: ")
+for row in data[1:]: # Exclude the Headers
+    if row[0] == userinput : # Match if the input city is present in the data
+        print(row[1]) # Print the rows first index column i.e. temprature
+
+# Create search something in browser
+import webbrowser
+user_ter=input('enter a search')
+webbrowser.open('https://www.google.com/search?q='+user_ter)
+
+# Reading from JSON
+# note that the file we have in JSON its a list of dictionaries
+# Once we have the file we can rred it
+import json
+with open('test_files/Questions.json','r') as file :
+    content = file.read()
+
+print(content)
+# Json Load String 
+
+score=0
+data = json.loads(content)
+
+# We are iterating over a list.
+# if it was dictionary of dictionaries our iteration should be different
+
+for each_Question in data:
+    print(each_Question["Question"])
+    for index, each_alternative in enumerate(each_Question["Alternatives"]):
+        print(index+1," - ", each_alternative)
+    
+    userchoice = int(input("Enter Your Answe "))
+    each_Question["User Choice"] = userchoice
+    # adding this to userchoice was imp to compare 
+    # because each question as diffrent input
+    if each_Question["User Choice"] == each_Question["Answer"]:
+        score=score+1
+        print("Correct Choice:",each_Question["Answer"])
+    else:
+        print('Ohh Incorrect, Correct Answer is ',each_Question["Answer"])
+
+print('Your Score: ',score)
+
+
+
+
+
+
+
+
