@@ -1,0 +1,6 @@
+[{"Question": "What is a Blue Whale?",
+  "Alternatives": ["Amphibians","Fish","Mammals","Birds"],
+  "Answer": 3},
+ {"Question": "What Occupies most of earch?",
+  "Alternatives": ["Land","Water"],
+  "Answer": 2}]
