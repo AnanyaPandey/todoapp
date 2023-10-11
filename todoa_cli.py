@@ -32,8 +32,8 @@ while True :
 
     elif useraction == "show" :
         showtodolist(todos)
-            # \n will have one space and for loop each element 
-            # has built in space while printing each item
+        # \n will have one space and for loop each element
+        # has built in space while printing each item
 
     elif useraction == "edit".strip():
         try:
@@ -50,7 +50,7 @@ while True :
             showtodolist(todos)
             editinput = int(input('Press Number which one to edit :').strip())
             temp=todos[editinput-1].strip('\n')
-            todos.pop(editinput-1) 
+            todos.pop(editinput-1)
             print(f"Item -  {temp} Removed from the list")
         except IndexError:
             print('Not a Valid input')
@@ -62,4 +62,4 @@ while True :
     else :
         print('Choose Correct Action')
 
-save_todos(todosfilepath,todos)        
+save_todos(todosfilepath,todos)

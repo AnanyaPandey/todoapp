@@ -1,4 +1,4 @@
 Rotate
 Temp Work
 Sleep
-Wake Up
+Go Run
