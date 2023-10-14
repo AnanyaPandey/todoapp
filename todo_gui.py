@@ -25,15 +25,18 @@ while True:
     event,value = window.read() # Returns the text written no input box along with other variables
     # ('Add', {todo:'Hi'}) this is the format in which this returns the value
     # on pressing the add button the app exited and returned this
-    print(event) # Add
-    print(type(value))
-    print(value) # {todo:'Hi}
-    print(value['listoftodos'])
+    print("1. ",event) # Add
+    # print(type(value))
+    print("2. ",value) # {todo:'Hi}
+    print("3. ",value['listoftodos'])
+
     if event == "Add":
         todos = todoapp_functions.get_todos('todoapp.txt')
         new_todo = value['item'] + '\n'
         todos.append(new_todo)
         todoapp_functions.save_todos(todos)
+        window['listoftodos'].update(values=todos)
+
     elif event == 'Edit':
         todo_to_edit = value['listoftodos'][0]
         new_todo = value['item']
@@ -44,6 +47,8 @@ while True:
         todoapp_functions.save_todos(todos)
 
         window['listoftodos'].update(values=todos)
+    elif event == 'listoftodos':
+        window['item'].update(value=value['listoftodos'][0])
     elif event == sg.WIN_CLOSED :
         break
 window.close()
